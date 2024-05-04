@@ -50,7 +50,7 @@ function playRound(humanChoice, computerChoice) {
     return;
 }
 
-for (let i = 1; i < 6; i++) {
+for (let i = 1; i < Infinity; i++) {
     console.log(`Round #${i}.\nHuman: ${humanScore} points\nComputer: ${computerScore} points`);
     const humanChoice = getHumanChoice();
     const computerChoice = getComputerChoice();
@@ -58,5 +58,7 @@ for (let i = 1; i < 6; i++) {
     console.log(`Human: ${humanChoice} VS Computer: ${computerChoice}`);
     playRound(humanChoice, computerChoice);
     
-    
+    if (humanScore === 3 || computerScore === 3) {
+        break;
+    }
 }
