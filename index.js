@@ -1,7 +1,21 @@
 let validChoices = ["rock", "paper", "scissors"];
+let humanScore = 0, computerScore = 0;
+const matchMap = {
+    "rock": {
+        "paper": 0,
+        "scissors": 1
+    },
+    "paper": {
+        "rock": 1,
+        "scissors": 0
+    },
+    "scissors": {
+        "paper": 1,
+        "rock": 0
+    },
+};
 
 function getHumanChoice() {
-    
     let valid = false;
     let choice = "";
 
@@ -19,14 +33,30 @@ function getComputerChoice() {
     return validChoices[index];
 }
 
-let humanScore = 0, computerScore = 0;
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+        console.log("It's a tie!");
+        return;
+    }
+
+    if (matchMap[humanChoice][computerChoice]) {
+        humanScore++;
+        console.log("The human wins!");
+    }
+    else {
+        computerScore++;
+        console.log("The computer wins!");
+    }
+    return;
+}
 
 for (let i = 1; i < 6; i++) {
-    console.log(`Round #${i}`);
+    console.log(`Round #${i}.\nHuman: ${humanScore} points\nComputer: ${computerScore} points`);
     const humanChoice = getHumanChoice();
     const computerChoice = getComputerChoice();
 
     console.log(`Human: ${humanChoice} VS Computer: ${computerChoice}`);
-    //compare choices
-    //add score
+    playRound(humanChoice, computerChoice);
+    
+    
 }
