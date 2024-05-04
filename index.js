@@ -62,3 +62,10 @@ for (let i = 1; i < Infinity; i++) {
         break;
     }
 }
+
+if (humanScore > computerScore) {
+    console.log("The human has won the game!");
+}
+else {
+    console.log("The computer has won the game!");
+}
