@@ -49,7 +49,7 @@ function playRound(humanChoice, computerChoice) {
     }
     return;
 }
-
+/*
 for (let i = 1; i < Infinity; i++) {
     console.log(`Round #${i}.\nHuman: ${humanScore} points\nComputer: ${computerScore} points`);
     const humanChoice = getHumanChoice();
@@ -69,3 +69,4 @@ if (humanScore > computerScore) {
 else {
     console.log("The computer has won the game!");
 }
+*/
