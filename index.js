@@ -85,7 +85,21 @@ function loadButtons() {
     let childrens = buttonsContainer.children;
     for (let children of childrens) {
         children.addEventListener("click", prepareRound);
+function resetGame() {
+    for (let children of buttonsContainer.children) {
+        children.disabled = false
     }
+    scores["computer"] = 0;
+    scores["human"] = 0;
+
+    scoresContainer.children[0].textContent = ``;
+    scoresContainer.children[1].textContent = ``;
+
+    playsContainer.children[0].textContent = ``;
+    playsContainer.children[1].textContent = ``;
+
+    result.textContent = ``;
+    output.removeChild(newButton);
 }
 
 function prepareRound(event) {
