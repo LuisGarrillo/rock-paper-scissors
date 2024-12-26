@@ -80,11 +80,13 @@ function playRound(humanChoice, computerChoice) {
     return;
 }
 
-function loadButtons() {
-    let buttonsContainer = document.getElementById("buttons");
-    let childrens = buttonsContainer.children;
-    for (let children of childrens) {
-        children.addEventListener("click", prepareRound);
+function createPlayAgainButton() {
+    let newButton = document.createElement("button");
+    newButton.textContent = "Play again?";
+    newButton.addEventListener("click", resetGame);
+    return newButton;
+}
+
 function resetGame() {
     for (let children of buttonsContainer.children) {
         children.disabled = false
