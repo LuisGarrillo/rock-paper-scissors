@@ -35,17 +35,18 @@ function getComputerChoice() {
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-        console.log("It's a tie!");
-        return;
+        return "tie";
     }
 
     if (matchMap[humanChoice][computerChoice]) {
-        humanScore++;
-        console.log("The human wins!");
+        scores["human"]++;
+        return "human";
     }
     else {
-        computerScore++;
-        console.log("The computer wins!");
+        scores["computer"]++;
+        return "computer";
+    }
+}
     }
     return;
 }
