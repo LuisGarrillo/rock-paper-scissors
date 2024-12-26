@@ -104,8 +104,33 @@ function resetGame() {
     output.removeChild(newButton);
 }
 
-function prepareRound(event) {
-    console.log(event.target.value);
+function manageRound(event) {
+    // Get choices and play round
+    let humanChoice = event.target.value;
+    let computerChoice = getComputerChoice();
+    let winner = playRound(humanChoice, computerChoice);
+
+    // Update scores
+    scoresContainer.children[0].textContent = `Human = ${scores["human"]}`;
+    scoresContainer.children[1].textContent = `Computer = ${scores["computer"]}`;
+
+    // Update plays
+    playsContainer.children[0].textContent = `The human ${plays[humanChoice]}`;
+    playsContainer.children[1].textContent = `The computer ${plays[computerChoice]}`;
+
+    // Update result
+    if (scores[winner] < 5) {
+        result.textContent = roundWinnerDialogues[winner];
+        return;
+    }
+
+    // if a score reaches 5 then end the game
+    result.textContent = gameWinnerDialogues[winner];
+    for (let children of buttonsContainer.children) {
+        children.disabled = true;
+    }
+    let output = document.getElementById("output");
+    output.append(newButton);
 }
 
 document.addEventListener("DOMContentLoaded", loadButtons);
