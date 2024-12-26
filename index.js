@@ -49,6 +49,21 @@ function playRound(humanChoice, computerChoice) {
     }
     return;
 }
+
+function loadButtons() {
+    let buttonsContainer = document.getElementById("buttons");
+    let childrens = buttonsContainer.children;
+    for (let children of childrens) {
+        children.addEventListener("click", prepareRound);
+    }
+}
+
+function prepareRound(event) {
+    console.log(event.target.value);
+}
+
+document.addEventListener("DOMContentLoaded", loadButtons);
+
 /*
 for (let i = 1; i < Infinity; i++) {
     console.log(`Round #${i}.\nHuman: ${humanScore} points\nComputer: ${computerScore} points`);
