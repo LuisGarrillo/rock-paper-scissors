@@ -76,8 +76,18 @@ function playRound(humanChoice, computerChoice) {
         return "computer";
     }
 }
+
+function loadData() {
+    buttonsContainer = document.getElementById("buttons");
+    scoresContainer = document.getElementById("scores");
+    playsContainer = document.getElementById("plays");
+    result = document.getElementById("result");
+    output = document.getElementById("output");
+    newButton = createPlayAgainButton();
+    
+    for (let children of buttonsContainer.children) {
+        children.addEventListener("click", manageRound);
     }
-    return;
 }
 
 function createPlayAgainButton() {
@@ -133,7 +143,7 @@ function manageRound(event) {
     output.append(newButton);
 }
 
-document.addEventListener("DOMContentLoaded", loadButtons);
+document.addEventListener("DOMContentLoaded", loadData);
 
 /*
 for (let i = 1; i < Infinity; i++) {
