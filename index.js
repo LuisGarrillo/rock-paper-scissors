@@ -1,5 +1,11 @@
 let validChoices = ["rock", "paper", "scissors"];
-let humanScore = 0, computerScore = 0;
+let buttonsContainer;
+let scoresContainer;
+let playsContainer;
+let result;
+let output;
+let newButton;
+
 const matchMap = {
     "rock": {
         "paper": 0,
@@ -14,6 +20,29 @@ const matchMap = {
         "rock": 0
     },
 };
+
+const scores = {
+    "human": 0,
+    "computer": 0,
+    "tie": 0,
+}
+
+const plays = {
+    "rock": "attempts to throw a big rock!",
+    "paper": "tries to inflict a million paper cuts!",
+    "scissors": "disassembles a scissor and attacks with both blades!",
+}
+
+const roundWinnerDialogues = {
+    "human": "Human creativity overwhelm the computer!",
+    "computer": "The computer calculations are too much for the human!",
+    "tie": "The clash ends in a tie!"
+}
+
+const gameWinnerDialogues = {
+    "human": "The indomitable human spirit rises against the computer!",
+    "computer": "The age of the machines has finally arrived!"
+}
 
 function getHumanChoice() {
     let valid = false;
